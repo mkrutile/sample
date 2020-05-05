@@ -18,10 +18,4 @@ class Sword
         end
         return total_price_all
     end
-
-    #def pay_gil(pay)
-        #if pay < total_price(count)
-        #end
-    #end
-
 end
