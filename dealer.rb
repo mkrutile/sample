@@ -1,27 +1,23 @@
-class Dealer
-    attr_accessor :id, :name, :price
+require './menu.rb'
 
-    def initialize(**params)
-        @id = params[:id]
-        @name = params[:name]
-        @price = params[:price]
-    end
+class Dealer
 
     def showitems
-        @dealer = [
-            Dealer.new(id: 1, name: "エリクサー", price: 500),
-            Dealer.new(id: 2, name: "アルテマウエポン", price: 5000),
-            Dealer.new(id: 3, name: "エクスカリパー", price: 1),
-            Dealer.new(id: 4, name: "英雄の盾", price: 3000),
-            Dealer.new(id: 5, name: "皆伝の証", price: 2000),
+        @menus= [
+            Menus.new(id: 1, name: "エリクサー", price: 500),
+            Menus.new(id: 2, name: "アルテマウエポン", price: 5000),
+            Menus.new(id: 3, name: "エクスカリパー", price: 1),
+            Menus.new(id: 4, name: "英雄の盾", price: 3000),
+            Menus.new(id: 5, name: "皆伝の証", price: 2000),
         ]
-        @dealer.each do |item|
+    
+        @menus.each do |item|
         puts "#{item.id}. 「#{item.name}」 #{item.price}ギル"
         end
     end
 
-    def selectitems(dealer)
-        select_menu = @dealer.find {|item| item.id == dealer}
+    def selectitems(menus)
+        select_menu = @menus.find {|item| item.id == menus}
         if select_menu.nil?
             puts "その商品はうちには取り扱っていないよ！"
             puts "もう一度選んでくれるかい？"
