@@ -16,7 +16,7 @@ class Dealer
         end
     end
 
-    def selectitems(menus)
+    def selectitems(gets.chomp.to_i)
         select_menu = @menus.find {|item| item.id == menus}
         if select_menu.nil?
             puts "その商品はうちには取り扱っていないよ！"
