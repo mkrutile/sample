@@ -32,6 +32,7 @@ class Dealer
     DISCOUNT_TAGET_COUNT = 3
     DISCOUNT_RATE = 0.8
     def orderitems(item, price)
+        count =
         count_all = item.price*count
         if count <= CAN_CHOOSE_COUNT
             puts "その数量は選べないぞ！"
