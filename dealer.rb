@@ -16,7 +16,7 @@ class Dealer
         end
     end
 
-    def selectitems(gets.chomp.to_i)
+    def selectitems(menus)
         select_menu = @menus.find {|item| item.id == menus}
         if select_menu.nil?
             puts "その商品はうちには取り扱っていないよ！"
@@ -24,14 +24,16 @@ class Dealer
         else
             puts "「#{select_menu.name}」にするのじゃな！"
             puts "いくつ必要かな？"
+            ""
         end
     end
 
     CAN_CHOOSE_COUNT = 0
     DISCOUNT_TAGET_COUNT = 3
     DISCOUNT_RATE = 0.8
-    def orderitems
-        count_all = select_menu.price*count
+    def orderitems(item, price)
+        count_all = @menus.find {|item| item.price == price}
+        count_all = item.price*count
         if count <= CAN_CHOOSE_COUNT
             puts "その数量は選べないぞ！"
         elsif count < DISCOUNT_TAGET_COUNT

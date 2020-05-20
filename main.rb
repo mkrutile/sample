@@ -12,7 +12,7 @@ dealer.showitems()
 until item = dealer.selectitems(gets.chomp.to_i); end
 
 # 商品と欲しい数を注文して値段を確認する、変な注文をすると値段を教えてくれないので伝えなおす
-#until billing = dealer.orderitems(item, gets.chomp.to_i); end
+until billing = dealer.orderitems(item, gets.chomp.to_i); end
 
 # お金を払う
 #dealer.payment(gets.chomp.to_i)
