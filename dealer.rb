@@ -38,11 +38,12 @@ class Dealer
             puts "その数量は選べないぞ！"
         elsif count < DISCOUNT_TAGET_COUNT
             puts "#{@count_all.floor}ギルだよ！"
+            @count_all
         else count >= DISCOUNT_TAGET_COUNT
             @count_all *= DISCOUNT_RATE
             puts "2割引にしておくよ！#{@count_all.floor}ギルだよ！"
+            @count_all
         end
-        @count_all
     end
 
     MONEY_PAY = 0
