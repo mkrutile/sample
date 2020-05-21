@@ -31,8 +31,7 @@ class Dealer
     CAN_CHOOSE_COUNT = 0
     DISCOUNT_TAGET_COUNT = 3
     DISCOUNT_RATE = 0.8
-    def orderitems(item, menus)
-        count = gets.chomp.to_i
+    def orderitems(item, count)
         @count_all = item.price*count
         if count <= CAN_CHOOSE_COUNT
             puts "その数量は選べないぞ！"
@@ -47,8 +46,7 @@ class Dealer
     end
 
     MONEY_PAY = 0
-    def payment(billing)
-        money_pay = gets.chomp.to_i
+    def payment(money_pay)
         if money_pay <= MONEY_PAY
             puts "お金が見当たらないぞ！冗談はよしてくれ！"
         elsif money_pay > @count_all
