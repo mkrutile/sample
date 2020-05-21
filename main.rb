@@ -15,4 +15,4 @@ until item = dealer.selectitems(gets.chomp.to_i); end
 until billing = dealer.orderitems(item, gets.chomp.to_i); end
 
 # お金を払う
-#dealer.payment(gets.chomp.to_i)
+dealer.payment(gets.chomp.to_i)
