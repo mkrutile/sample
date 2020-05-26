@@ -1,15 +1,13 @@
 require './menu.rb'
 
 class Dealer
+    attr_reader :menus
+
+    def initialize(menus:)
+      @menus = menus
+    end
 
     def showitems
-        @menus= [
-            Menus.new(id: 1, name: "エリクサー", price: 500),
-            Menus.new(id: 2, name: "アルテマウエポン", price: 5000),
-            Menus.new(id: 3, name: "エクスカリパー", price: 1),
-            Menus.new(id: 4, name: "英雄の盾", price: 3000),
-            Menus.new(id: 5, name: "皆伝の証", price: 2000),
-        ]
     
         @menus.each do |item|
         puts "#{item.id}. 「#{item.name}」 #{item.price}ギル"
@@ -32,16 +30,16 @@ class Dealer
     DISCOUNT_TAGET_COUNT = 3
     DISCOUNT_RATE = 0.8
     def orderitems(item, count)
-        @count_all = item.price*count
+        @total_price = item.price*count
         if count <= CAN_CHOOSE_COUNT
             puts "その数量は選べないぞ！"
         elsif count < DISCOUNT_TAGET_COUNT
-            puts "#{@count_all.floor}ギルだよ！"
-            @count_all
+            puts "#{@total_price.floor}ギルだよ！"
+            @total_price
         else count >= DISCOUNT_TAGET_COUNT
-            @count_all *= DISCOUNT_RATE
-            puts "2割引にしておくよ！#{@count_all.floor}ギルだよ！"
-            @count_all
+            @total_price *= DISCOUNT_RATE
+            puts "2割引にしておくよ！#{@total_price.floor}ギルだよ！"
+            @total_price
         end
     end
 
@@ -49,11 +47,11 @@ class Dealer
     def payment(money_pay)
         if money_pay <= MONEY_PAY
             puts "お金が見当たらないぞ！冗談はよしてくれ！"
-        elsif money_pay > @count_all
-            puts "#{money_pay - @count_all.floor}ギルのお返しじゃ！"
-        elsif money_pay < @count_all
-            puts "残り#{@count_all.floor - money_pay}ギル足りないぞ！お金のない奴は帰ってくれ！"
-        else money_pay == @count_all
+        elsif money_pay > @total_price
+            puts "#{money_pay - @total_price.floor}ギルのお返しじゃ！"
+        elsif money_pay < @total_price
+            puts "残り#{@total_price.floor - money_pay}ギル足りないぞ！お金のない奴は帰ってくれ！"
+        else money_pay == @total_price
             puts "ちょうどだね！毎度あり！"
         end
     end

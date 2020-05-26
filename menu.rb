@@ -1,9 +1,9 @@
-class Menus
+class Menu
     attr_reader  :id, :name, :price
 
-    def initialize(**params)
-        @id = params[:id]
-        @name = params[:name]
-        @price = params[:price]
+    def initialize(id:, name:, price:)
+        @id = id
+        @name = name
+        @price = price
     end
 end

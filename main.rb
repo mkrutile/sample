@@ -2,8 +2,16 @@
 
 require './dealer.rb'
 
+# 商人のイニシャライズに必要なメニューを事前に作っておく
+menus = [
+  Menu.new(id: 1, name: "エリクサー", price: 500),
+  Menu.new(id: 2, name: "アルテマウエポン", price: 5000),
+  Menu.new(id: 3, name: "エクスカリパー", price: 1),
+  Menu.new(id: 4, name: "英雄の盾", price: 3000),
+  Menu.new(id: 5, name: "皆伝の証", price: 2000)
+]
 # 商人を呼び出す
-dealer = Dealer.new()
+dealer = Dealer.new(menus: menus)
 
 # 商人にメニュを見せてもらう
 dealer.showitems()
