@@ -10,6 +10,7 @@ menus = [
   Menu.new(id: 4, name: "英雄の盾", price: 3000),
   Menu.new(id: 5, name: "皆伝の証", price: 2000)
 ]
+
 # 商人を呼び出す
 dealer = Dealer.new(menus: menus)
 
